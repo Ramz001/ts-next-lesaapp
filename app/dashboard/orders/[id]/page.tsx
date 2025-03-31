@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -15,7 +15,8 @@ import { fetchOrder } from "@/lib/woocommerce"
 import type { Order, Refund } from "@/types/pos"
 import { format } from "date-fns"
 
-export default function OrderDetailsPage({ params }: { params: { id: string } }) {
+export default function OrderDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = use(params)
   const [order, setOrder] = useState<Order | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [activeTab, setActiveTab] = useState("details")
@@ -23,7 +24,7 @@ export default function OrderDetailsPage({ params }: { params: { id: string } })
   useEffect(() => {
     const loadOrder = async () => {
       try {
-        const data = await fetchOrder(params.id)
+        const data = await fetchOrder(resolvedParams.id)
         setOrder(data)
       } catch (error) {
         console.error("Failed to fetch order:", error)
@@ -33,7 +34,7 @@ export default function OrderDetailsPage({ params }: { params: { id: string } })
     }
 
     loadOrder()
-  }, [params.id])
+  }, [resolvedParams.id])
 
   const handleRefundComplete = (refundData: Refund) => {
     if (order) {
