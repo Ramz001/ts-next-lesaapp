@@ -1,11 +1,11 @@
 // This is a mock implementation for demonstration purposes
 // In a real application, this would use the WooCommerce REST API
 
-import type { Product, Order, RefundData } from "@/types/pos"
+import type { Product, Order, RefundData } from "@/types/pos";
 
 export async function fetchProducts(): Promise<Product[]> {
   // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // Mock product data for construction and scaffolding
   return [
@@ -264,42 +264,6 @@ export async function fetchProducts(): Promise<Product[]> {
             },
           ],
         },
-        {
-          id: 4,
-          productId: 4,
-          name: "Scaffold Caster Wheel",
-          price: 28.75,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 4,
-          minQuantity: 0,
-          maxQuantity: 4,
-          optional: true,
-          variations: [
-            {
-              id: 1,
-              name: "Load Capacity",
-              options: ["500 lbs", "750 lbs", "1000 lbs"],
-            },
-          ],
-        },
-        {
-          id: 5,
-          productId: 6,
-          name: "Scaffold Guardrail",
-          price: 55.25,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 2,
-          minQuantity: 0,
-          maxQuantity: 4,
-          optional: true,
-          variations: [
-            {
-              id: 1,
-              name: "Length",
-              options: ["6'", "8'", "10'"],
-            },
-          ],
-        },
       ],
     },
     {
@@ -412,35 +376,6 @@ export async function fetchProducts(): Promise<Product[]> {
             },
           ],
         },
-        {
-          id: 6,
-          productId: 9,
-          name: "Scaffold Toe Board",
-          price: 25.99,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 4,
-          minQuantity: 0,
-          maxQuantity: 8,
-          optional: true,
-          variations: [
-            {
-              id: 1,
-              name: "Length",
-              options: ["6'", "8'", "10'"],
-            },
-          ],
-        },
-        {
-          id: 7,
-          productId: 5,
-          name: "Scaffold Leveling Jack",
-          price: 42.99,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 4,
-          minQuantity: 0,
-          maxQuantity: 4,
-          optional: true,
-        },
       ],
     },
     {
@@ -517,17 +452,6 @@ export async function fetchProducts(): Promise<Product[]> {
               options: ["S", "M", "L", "XL"],
             },
           ],
-        },
-        {
-          id: 5,
-          productId: 17,
-          name: "Safety Lanyard",
-          price: 45.99,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 1,
-          minQuantity: 0,
-          maxQuantity: 2,
-          optional: true,
         },
       ],
     },
@@ -643,35 +567,6 @@ export async function fetchProducts(): Promise<Product[]> {
           ],
         },
         {
-          id: 4,
-          productId: 4,
-          name: "Scaffold Caster Wheel",
-          price: 28.75,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 0,
-          minQuantity: 0,
-          maxQuantity: 8,
-          optional: true,
-          variations: [
-            {
-              id: 1,
-              name: "Load Capacity",
-              options: ["500 lbs", "750 lbs", "1000 lbs"],
-            },
-          ],
-        },
-        {
-          id: 5,
-          productId: 5,
-          name: "Scaffold Leveling Jack",
-          price: 42.99,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 0,
-          minQuantity: 0,
-          maxQuantity: 8,
-          optional: true,
-        },
-        {
           id: 6,
           productId: 6,
           name: "Scaffold Guardrail",
@@ -690,17 +585,6 @@ export async function fetchProducts(): Promise<Product[]> {
           ],
         },
         {
-          id: 7,
-          productId: 7,
-          name: "Scaffold Outrigger",
-          price: 75.0,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 0,
-          minQuantity: 0,
-          maxQuantity: 4,
-          optional: true,
-        },
-        {
           id: 8,
           productId: 8,
           name: "Scaffold Coupling Pin",
@@ -711,43 +595,14 @@ export async function fetchProducts(): Promise<Product[]> {
           maxQuantity: 40,
           optional: false,
         },
-        {
-          id: 9,
-          productId: 9,
-          name: "Scaffold Toe Board",
-          price: 25.99,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 6,
-          minQuantity: 0,
-          maxQuantity: 10,
-          optional: true,
-          variations: [
-            {
-              id: 1,
-              name: "Length",
-              options: ["6'", "8'", "10'"],
-            },
-          ],
-        },
-        {
-          id: 10,
-          productId: 14,
-          name: "Scaffolding Safety Package",
-          price: 199.99,
-          image: "/placeholder.svg?height=200&width=200",
-          defaultQuantity: 1,
-          minQuantity: 0,
-          maxQuantity: 2,
-          optional: true,
-        },
       ],
     },
-  ]
+  ];
 }
 
 export async function createOrder(orderData: any) {
   // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // In a real implementation, this would create an order in WooCommerce
   return {
@@ -755,12 +610,12 @@ export async function createOrder(orderData: any) {
     ...orderData,
     date: new Date().toISOString(),
     status: "processing",
-  }
+  };
 }
 
 export async function fetchOrder(orderId: string): Promise<Order | null> {
   // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 800))
+  await new Promise((resolve) => setTimeout(resolve, 800));
 
   // In a real implementation, this would fetch the order from WooCommerce
   // For now, return a mock order
@@ -821,15 +676,15 @@ export async function fetchOrder(orderId: string): Promise<Order | null> {
     discount_total: 0,
     total: 1585.23,
     refunds: [],
-  }
+  };
 }
 
 export async function processRefund(orderId: string, refundData: RefundData) {
   // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1500))
+  await new Promise((resolve) => setTimeout(resolve, 1500));
 
   // Generate a unique refund ID
-  const refundId = `RF-${Math.floor(Math.random() * 10000) + 1}`
+  const refundId = `RF-${Math.floor(Math.random() * 10000) + 1}`;
 
   // Create the refund object
   const refund = {
@@ -844,7 +699,7 @@ export async function processRefund(orderId: string, refundData: RefundData) {
     status: "completed",
     created_by: "admin",
     restock_items: refundData.restock,
-  }
+  };
 
   // In a real implementation, this would:
   // 1. Process the refund through the payment gateway
@@ -852,32 +707,31 @@ export async function processRefund(orderId: string, refundData: RefundData) {
   // 3. Update the order status if it's a full refund
   // 4. Create a record of the refund in the database
 
-  console.log("Processing refund:", refund)
+  console.log("Processing refund:", refund);
 
   // Return the refund data
-  return refund
+  return refund;
 }
 
 export async function createBooking(bookingData: any) {
   // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // In a real implementation, this would create a booking in WooCommerce
   return {
     id: `BK-${Math.floor(Math.random() * 1000) + 1}`,
     ...bookingData,
     status: "upcoming",
-  }
+  };
 }
 
 export async function createDiscount(discountData: any) {
   // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // In a real implementation, this would create a discount in WooCommerce
   return {
     id: Math.floor(Math.random() * 1000) + 1,
     ...discountData,
-  }
+  };
 }
-

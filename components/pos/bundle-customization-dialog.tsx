@@ -167,36 +167,9 @@ export function BundleCustomizationDialog({
     setCustomizedItems(updatedItems);
   };
 
-  const handleToggleItem = (itemId: number, included: boolean) => {
-    const item = customizedItems.find((i) => i.id === itemId);
-
-    if (!item || !item.optional) return;
-
-    const updatedItems = customizedItems.map((i) => {
-      if (i.id === itemId) {
-        return {
-          ...i,
-          quantity: included ? i.defaultQuantity : 0,
-        };
-      }
-      return i;
-    });
-
-    setCustomizedItems(updatedItems);
-    calculateTotalPrice(updatedItems);
-  };
-
   const handleAddToCart = () => {
     // Filter out items with quantity 0
     const finalItems = customizedItems.filter((item) => item.quantity > 0);
-
-    // Check if any optional items are included
-    const hasOptionalItems = finalItems.some(
-      (item) => item.optional && item.quantity > 0
-    );
-    if (hasOptionalItems) {
-      return;
-    }
 
     // Update the product price to match our calculated total
     const updatedProduct = {
@@ -352,9 +325,6 @@ export function BundleCustomizationDialog({
           </Button>
           <Button
             onClick={handleAddToCart}
-            disabled={customizedItems.some(
-              (item) => item.optional && item.quantity > 0
-            )}
           >
             Add to Cart
           </Button>
